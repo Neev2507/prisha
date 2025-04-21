@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
 
 
@@ -15,6 +16,7 @@
     color: #333;
     margin: 0;
     padding: 0;
+    
 }
 
 .letter-box p {
@@ -23,6 +25,28 @@
     line-height: 1.6;
     margin-bottom: 20px;
 }
+nav {
+    background-color: #ffe4e1;
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+    nav a {
+      text-decoration: none;
+      font-size: 1.2em;
+      color: #b22222;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #8b0000;
+    }
 
         body {
             font-family: 'Meow Script', cursive;
@@ -37,9 +61,51 @@
             text-decoration: none;
             font-weight: bold;
         }
+        .love-button {
+      background-color: #ffcad4;
+      border: none;
+      color: #8b0000;
+      padding: 10px 20px;
+      font-size: 1em;
+      font-weight: bold;
+      border-radius: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-decoration: none;
+    }
+
+    .love-button:hover {
+      background-color: #ffc0cb;
+      color: #fff;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      transform: scale(1.05);
+    }
+
+    .love-button:active {
+      transform: scale(0.98);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .content {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .heading {
+      font-size: 2.5em;
+      color: #b22222;
+      margin-bottom: 40px;
+    }
     </style>
 </head>
 <body>
+    <nav>
+        <a href="index.html" class="love-button">Home</a>
+        <a href="letter.html" class="love-button">Letter</a>
+        <a href="music.html" class="love-button">Music</a>
+        <a href="collage.html" class="love-button">Collage</a>
+      </nav>
     <div class="letter-box">
         <h2>My Love,</h2>
         <p>
@@ -72,6 +138,6 @@
         </p>
       </div>
       
-<a href="index.html">Back to home</a>
+
 </body>
 </html>

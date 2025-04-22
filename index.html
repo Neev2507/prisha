@@ -77,5 +77,21 @@
     <p style="font-size: 1.2em;">This website is a small piece of my heart, made just for you. Explore the love letter, music I played for you, and our favorite memories in a collage. I love you endlessly.</p>
   </div>
 
+  <audio id="bg-music" autoplay loop>
+    <source src="perfect.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bg-music");
+    document.addEventListener("DOMContentLoaded", () => {
+      const playAudio = () => {
+        audio.play().catch(() => {});
+        document.removeEventListener("click", playAudio);
+      };
+      document.addEventListener("click", playAudio);
+    });
+  </script>
+
 </body>
 </html>

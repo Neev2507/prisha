@@ -12,10 +12,28 @@
             text-align: center;
         }
         video {
-            width: 80%;
+            width: 30%;
             border-radius: 10px;
             margin: 20px 0;
         }
+        .video-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.video-card {
+  width: 30%;
+  text-align: center;
+}
+
+.video-card video {
+  width: 100%;
+  border-radius: 10px;
+}
+
         a {
             color: #b22222;
             text-decoration: none;
@@ -90,16 +108,19 @@
         <a href="collage.html" class="love-button">Collage</a>
       </nav>
     <h1>Your Songs</h1>
+    <div class="video-row">
+      <div class="video-card">
     <video controls>
         <source src="tum.mp4" type="video/mp4">
     </video>
-    <p>Tum se hi toh mera din hota hai </p>
-
+    <p>Tum se hi toh mera din hota hai. </p>
+  </div>
+  <div class="video-card">
     <video controls>
-        <source src="your-piano-video.mp4" type="video/mp4">
+        <source src="riptide.mp4" type="video/mp4">
     </video>
-    <p>From my heart to yours.</p>
-
-    
+    <p>I'll always be your left hand man.</p>
+  </div>
+</div>
 </body>
 </html>

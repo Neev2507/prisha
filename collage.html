@@ -109,6 +109,20 @@ nav a:hover {
     opacity: 0;
   }
 }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 1.5s ease-out;
+}
 
 .caption {
   margin-top: 10px;
@@ -139,7 +153,10 @@ nav a:hover {
   box-shadow: 0 6px 12px rgba(0,0,0,0.15);
   transform: scale(1.05);
 }
-
+nav a.love-button.active {
+  box-shadow: 0 0 10px #ff69b4aa;
+  background-color: #ffb6c1;
+}
 .love-button:active {
   transform: scale(0.98);
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -150,60 +167,61 @@ nav a:hover {
 </head>
 <body>
   <nav>
-    <a href="index.html" class="love-button">Home</a>
-    <a href="letter.html" class="love-button">Letter</a>
-    <a href="music.html" class="love-button">Music</a>
-    <a href="collage.html" class="love-button">Collage</a>
+    <a href="index.html" class="love-button ">Home</a>
+    <a href="letter.html" class="love-button ">Letter</a>
+    <a href="music.html" class="love-button ">Music</a>
+    <a href="collage.html" class="love-button active">Collage</a>
+    <a href="heart.html" class="love-button">Special</a>
   </nav>
 
   <div class="gallery">
     <div class="image-container">
       <img src="photos/bday.jpg" alt="My favourite day of the year" />
-      <p class="caption">My favourite day of the year</p>
+      <p class="caption fade-in">My favourite day of the year</p>
     </div>
     <div class="image-container">
       <img src="photos/1st date.jpg" alt="Our 1st date!" />
-      <p class="caption">Our first date!</p>
+      <p class="caption fade-in">Our first date!</p>
     </div>
     <div class="image-container">
       <img src="photos/2nd date.jpg" alt="Our 2nd date!" />
-      <p class="caption">Our second date!</p>
+      <p class="caption fade-in">Our second date!</p>
     </div>
     <div class="image-container">
       <img src="photos/bday2.jpg" alt="bday!" />
-      <p class="caption">Your birthday!</p>
+      <p class="caption fade-in">Your birthday!</p>
     </div>
     <div class="image-container">
       <img src="photos/hug.jpg" alt="hug" />
-      <p class="caption">Heaven on earth</p>
+      <p class="caption fade-in">Heaven on earth</p>
     </div>
     <div class="image-container">
       <img src="photos/hehe.jpg" alt="hehe" />
-      <p class="caption">Goated pic</p>
+      <p class="caption fade-in">Goated pic</p>
     </div>
     <div class="image-container">
       <img src="photos/first boyllwood.jpg" alt="Our 1st bollywood!" />
-      <p class="caption">Our first bollywood pic!</p>
+      <p class="caption fade-in">Our first bollywood pic!</p>
     </div>
     <div class="image-container">
       <img src="photos/timezone.jpg" alt="timezone!" />
-      <p class="caption">Timezone!</p>
+      <p class="caption fade-in">Timezone!</p>
     </div>
     <div class="image-container">
       <img src="photos/first dance.jpg" alt="Our 1st dance!" />
-      <p class="caption">Our first dance!</p>
+      <p class="caption fade-in">Our first dance!</p>
     </div>
     <div class="image-container">
       <img src="photos/first time out.jpg" alt="Our 1st timeout!" />
-      <p class="caption">Our first timeout alone!</p>
+      <p class="caption fade-in">Our first timeout alone!</p>
     </div>
     <div class="image-container">
       <img src="photos/investigure.jpg" alt="investigure" />
-      <p class="caption">investigure!</p>
+      <p class="caption fade-in">investigure!</p>
     </div>
     <div class="image-container">
       <img src="photos/paris.jpg" alt="paris" />
-      <p class="caption">The most special night of my life</p>
+      <p class="caption fade-in">The most special night of my life</p>
     </div>
   </div>
 

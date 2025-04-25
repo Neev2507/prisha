@@ -1,32 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+  <title>The Letter</title>
+  <style>
+    body {
+      font-family: 'Meow Script', cursive;
+      background-color: #fff0f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
 
-
-
-
-    <title>The Letter</title>
-    <style>
-        body {
-            font-family: 'Meow Script', cursive;
-    background-color: #fff0f5;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    
-}
-
-.letter-box p {
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 20px;
-}
-nav {
-    background-color: #ffe4e1;
+    nav {
+      background-color: #ffe4e1;
       padding: 20px 0;
       display: flex;
       justify-content: center;
@@ -36,6 +25,7 @@ nav {
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       z-index: 10;
     }
+
     nav a {
       text-decoration: none;
       font-size: 1.2em;
@@ -48,28 +38,12 @@ nav {
       color: #8b0000;
     }
 
-        body {
-            font-family: 'Meow Script', cursive;
-            background-color: #fef9f8;
-            color: #333;
+    nav a.love-button.active {
+      box-shadow: 0 0 10px #ff69b4aa;
+      background-color: #ffb6c1;
+    }
 
-            
-            margin: auto;
-        }
-  .letter-box{
-    font-family: 'Meow Script', cursive;
-            background-color: #fef9f8;
-            color: #333;
-            padding:0 40px;
-            margin: auto;
-  }
-
-        a {
-            color: #b22222;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .love-button {
+    .love-button {
       background-color: #ffcad4;
       border: none;
       color: #8b0000;
@@ -95,71 +69,100 @@ nav {
       transform: scale(0.98);
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-    .content {
-      padding: 60px 20px;
-      text-align: center;
+
+    .letter-box {
+      background: #fffdf8;
+      background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+      padding: 40px;
+      margin: 60px auto;
+      max-width: 800px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      font-family: 'Meow Script', cursive;
+      animation: fadeInUp 1s ease-out;
     }
 
-    .heading {
+    .letter-box h2 {
       font-size: 2.5em;
       color: #b22222;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
-    </style>
+
+    .letter-box p {
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="love-button">Home</a>
-        <a href="letter.html" class="love-button">Letter</a>
-        <a href="music.html" class="love-button">Music</a>
-        <a href="collage.html" class="love-button">Collage</a>
-      </nav>
-    <div class="letter-box">
-        <h2>My Love,</h2>
-        <p>
-          I don’t even know where to begin, because no words can ever fully describe what you mean to me.
-          <br><br>
-          You’re not just my girlfriend. You’re my peace. My person. My whole world. I’ve known a lot of people, but I’ve never met anyone like you — with a soul as soft as yours, a heart as pure, and beauty that leaves me speechless every single time I look at you. You’re everything I never knew I needed, wrapped into one perfect human.
-          <br><br>
-          Before you, I carried a big ego — a wall I built to protect myself. But with you, all of that disappears. You make me feel safe just by being near. With you, I don’t need to act tough — because loving you is the strongest thing I’ve ever done.
-          <br><br>
-          You’re my calm in the chaos, the reason I smile even on my worst days. You’ve held me down through stress, exams, pressure — and you never asked for anything in return. You just gave me love. And when you’re hurting, I’ll always be there. I’ll call, hold you, whisper “everything is okay” until you feel it in your soul. Because as long as I’m breathing, you will never face anything alone.
-          <br><br>
-          We fight — oh, we fight. Over the smallest things sometimes. Every few days, it feels like we’re clashing, and yeah, I can be stubborn. But the crazy part? We always come back stronger. Always. Because no fight is bigger than what we’ve built. No argument can ever beat the love we have. It’s messy, it’s real — but it’s us. And I wouldn’t have it any other way.
-          <br><br>
-          I remember Paris — before we were even together. Something about that city, the lights, the way you laughed like the whole world disappeared… that’s when it hit me. I didn’t just like you. I was in love with you. Even if I didn’t say it out loud yet, I knew one day I’d ask you out — and I knew you’d say yes. You didn’t just say it — you jumped, you smiled, you lit up. And that moment will live in me forever.
-          <br><br>
-          I learned guitar for you, because music is how I speak love. I spend whatever I have just to see you smile — not because I have to, but because you deserve everything good this world has to offer.
-          <br><br>
-          And yeah, I’m really protective over you — because you’re not just someone. You’re everything. And I’ll protect you every single time. No one gets to come close to your name unless it’s with respect.
-          <br><br>
-          I know we’re young. I know life’s just getting started.<br>
-          But I also know this:<br>
-          One day, I will marry you.<br>
-          And until that day, I’ll keep choosing you — every argument, every laugh, every second.
-          <br><br>
-          Thank you for being the most beautiful part of my life — inside and out.<br>
-          I love you more than you’ll ever fully understand.
-          <br><br>
-          Forever yours,<br>
-          Nee
-        </p>
-      </div>
-      <audio id="bg-music" autoplay loop>
-        <source src="songs/yellow.mp4" type="audio/mpeg">
-    
-      </audio>
-    
-      <script>
-        const audio = document.getElementById("bg-music");
-        document.addEventListener("DOMContentLoaded", () => {
-          const playAudio = () => {
-            audio.play().catch(() => {});
-            document.removeEventListener("click", playAudio);
-          };
-          document.addEventListener("click", playAudio);
-        });
-      </script>
+
+  <nav>
+    <a href="index.html" class="love-button">Home</a>
+    <a href="letter.html" class="love-button active">Letter</a>
+    <a href="music.html" class="love-button">Music</a>
+    <a href="collage.html" class="love-button">Collage</a>
+    <a href="heart.html" class="love-button">Special</a>
+  </nav>
+
+  <div class="letter-box">
+    <h2>My Love,</h2>
+    <p>
+      I don’t even know where to begin, because no words can ever fully describe what you mean to me.
+      <br><br>
+      You’re not just my girlfriend. You’re my peace. My person. My whole world. I’ve known a lot of people, but I’ve never met anyone like you — with a soul as soft as yours, a heart as pure, and beauty that leaves me speechless every single time I look at you. You’re everything I never knew I needed, wrapped into one perfect human.
+      <br><br>
+      Before you, I carried a big ego — a wall I built to protect myself. But with you, all of that disappears. You make me feel safe just by being near. With you, I don’t need to act tough — because loving you is the strongest thing I’ve ever done.
+      <br><br>
+      You’re my calm in the chaos, the reason I smile even on my worst days. You’ve held me down through stress, exams, pressure — and you never asked for anything in return. You just gave me love. And when you’re hurting, I’ll always be there. I’ll call, hold you, whisper “everything is okay” until you feel it in your soul. Because as long as I’m breathing, you will never face anything alone.
+      <br><br>
+      We fight — oh, we fight. Over the smallest things sometimes. Every few days, it feels like we’re clashing, and yeah, I can be stubborn. But the crazy part? We always come back stronger. Always. Because no fight is bigger than what we’ve built. No argument can ever beat the love we have. It’s messy, it’s real — but it’s us. And I wouldn’t have it any other way.
+      <br><br>
+      I remember Paris — before we were even together. Something about that city, the lights, the way you laughed like the whole world disappeared… that’s when it hit me. I didn’t just like you. I was in love with you. Even if I didn’t say it out loud yet, I knew one day I’d ask you out — and I knew you’d say yes. You didn’t just say it — you jumped, you smiled, you lit up. And that moment will live in me forever.
+      <br><br>
+      I learned guitar for you, because music is how I speak love. I spend whatever I have just to see you smile — not because I have to, but because you deserve everything good this world has to offer.
+      <br><br>
+      And yeah, I’m really protective over you — because you’re not just someone. You’re everything. And I’ll protect you every single time. No one gets to come close to your name unless it’s with respect.
+      <br><br>
+      I know we’re young. I know life’s just getting started.<br>
+      But I also know this:<br>
+      One day, I will marry you.<br>
+      And until that day, I’ll keep choosing you — every argument, every laugh, every second.
+      <br><br>
+      Thank you for being the most beautiful part of my life — inside and out.<br>
+      I love you more than you’ll ever fully understand.
+      <br><br>
+      Forever yours,<br>
+      Nee
+    </p>
+  </div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="songs/yellow.mp4" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bg-music");
+    document.addEventListener("DOMContentLoaded", () => {
+      const playAudio = () => {
+        audio.play().catch(() => {});
+        document.removeEventListener("click", playAudio);
+      };
+      document.addEventListener("click", playAudio);
+    });
+  </script>
 
 </body>
 </html>

@@ -9,7 +9,7 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      background: linear-gradient(135deg, #000000, #08004c);
+      background: radial-gradient(circle at center, #0a0a23, #000000);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       align-items: center;
@@ -18,11 +18,28 @@
       position: relative;
     }
 
+    .navbar {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to right, #ff5c8d, #7f00ff);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+      font-weight: bold;
+      letter-spacing: 2px;
+      z-index: 1000;
+    }
+
     .genie-container {
       position: absolute;
       left: -500px;
       top: 30%;
-      width: 300px;
+      width: 320px;
       animation: slideIn 1s ease-out forwards;
     }
 
@@ -34,14 +51,17 @@
 
     .speech-bubble {
       position: absolute;
-      top: 20%;
-      left: 30%;
-      background: #fff;
+      top: 25%;
+      left: 35%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #ff5c8d;
       border-radius: 20px;
-      padding: 20px;
-      max-width: 400px;
-      font-size: 1.5em;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      padding: 25px;
+      max-width: 450px;
+      font-size: 1.7em;
+      color: #ffffff;
+      box-shadow: 0 8px 30px rgba(255, 92, 141, 0.5);
+      backdrop-filter: blur(10px);
       opacity: 0;
       transform: scale(0.8);
       transition: all 0.5s ease;
@@ -54,13 +74,13 @@
 
     .heart-button {
       position: absolute;
-      bottom: 50px;
-      background: #ff4d6d;
-      width: 320px;
-      height: 320px;
+      bottom: 60px;
+      background: #ff5c8d;
+      width: 300px;
+      height: 300px;
       border-radius: 50%;
-      border: none;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      border: 4px solid #ffffff;
+      box-shadow: 0 12px 25px rgba(255, 92, 141, 0.6);
       cursor: pointer;
       background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
       background-size: 50%;
@@ -76,16 +96,15 @@
 </head>
 <body>
 
+
+
   <audio id="chime" src="sound effect/chime.mp4"></audio>
   <audio id="heartbeat" src="sound effect/heartbeat.mp4"></audio>
 
   <img src="photos/genie.png" class="genie-container" id="genie" alt="Genie" />
-  <div class="speech-bubble" id="speech">
-    Hey babygirl
-  </div>
 
   <div class="speech-bubble" id="speech">
-    Welcome to an adventure into my heart. I'm your guide, let's begin!
+    Hey babygirl
   </div>
 
   <button class="heart-button" id="heart"></button>
@@ -97,29 +116,29 @@
     const speech = document.getElementById('speech');
     const heart = document.getElementById('heart');
 
-    window.addEventListener('load', () => {
+    function startExperience() {
+      chime.volume = 1.0;
+      chime.play().catch((error) => console.log('Chime play error:', error));
+
       setTimeout(() => {
         speech.classList.add('show');
-      }, 1500);
-    });
-    setTimeout(() => {
-        speech.classList.add('show');
-      }, 500); // Slightly earlier show for smoothness
+      }, 500);
 
       setTimeout(() => {
         speech.textContent = "Welcome to an adventure into my heart. I'm your guide, let's begin!";
-      }, 2000); // After 1.5 seconds of "Hey babygirl"
-   
+      }, 2000);
+      
+      window.removeEventListener('click', startExperience);
+      window.removeEventListener('touchstart', startExperience);
+    }
 
-    window.addEventListener('click', () => {
-      chime.volume = 1.0;
-      chime.play().catch((error) => console.log('Chime play error:', error));
-    }, { once: true });
+    window.addEventListener('click', startExperience);
+    window.addEventListener('touchstart', startExperience);
 
     heart.addEventListener('click', () => {
       heartbeat.volume = 1.0;
       heartbeat.play().catch(() => {});
-      heart.disabled = true; 
+      heart.disabled = true;
       setTimeout(() => {
         window.location.href = 'index.html';
       }, 5000);

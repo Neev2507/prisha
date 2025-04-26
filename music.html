@@ -1,131 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Music for You</title>
-    <style>
-      body {
-    font-family: 'Georgia', serif;
-    background-color: #fff0f0;
-    color: #333;
-    text-align: center;
-}
-
-        video {
-            width: 30%;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-        .video-row {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-
-.video-card {
-  width: 30%;
-  text-align: center;
-}
-
-.video-card video {
-  width: 100%;
-  border-radius: 10px;
-}
-
-        a {
-            color: #b22222;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .love-button {
-      background-color: #ffcad4;
-      border: none;
-      color: #8b0000;
-      padding: 10px 20px;
-      font-size: 1em;
-      font-weight: bold;
-      border-radius: 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-decoration: none;
+  <meta charset="UTF-8">
+  <title>Your Songs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Meow+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Meow Script', cursive;
+      background: radial-gradient(circle at center, #0a0a23, #000000);
+      color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
     }
 
-    .love-button:hover {
-      background-color: #ffc0cb;
-      color: #fff;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      transform: scale(1.05);
-    }
-
-    .love-button:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    .content {
-      padding: 60px 20px;
+    h1 {
+      font-size: 3em;
+      color: #ff5c8d;
+      margin: 60px 0 30px;
       text-align: center;
     }
 
-    .heading {
-      font-size: 2.5em;
-      color: #b22222;
-      margin-bottom: 40px;
-    }
-    nav a.love-button.active {
-  box-shadow: 0 0 10px #ff69b4aa;
-  background-color: #ffb6c1;
-}
-    nav {
-      background-color: #ffe4e1;
-      padding: 20px 0;
+    .video-row {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      position: sticky;
-      top: 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-    }
-    nav a {
-      text-decoration: none;
-      font-size: 1.2em;
-      color: #b22222;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      gap: 30px;
+      flex-wrap: wrap;
+      width: 90%;
+      max-width: 1200px;
     }
 
-    nav a:hover {
+    .video-card {
+      width: 400px;
+      text-align: center;
+      background: #1a1a2e;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(255, 105, 180, 0.2);
+      transition: box-shadow 0.4s ease;
+      margin-bottom: 40px;
+    }
+
+    .video-card:hover {
+      box-shadow: 0 12px 30px rgba(255, 105, 180, 0.5);
+    }
+
+    .video-card video {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+
+    .video-card p {
+      font-size: 1.8em;
+      color: #f5f5f5;
+    }
+
+    .bottom-nav {
+      margin: 40px auto 60px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .bottom-nav a {
+      background-color: #ffcad4;
       color: #8b0000;
+      padding: 15px 40px;
+      font-size: 1.5em;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: pulse 2s infinite;
     }
 
-    </style>
+    .bottom-nav a:hover {
+      background-color: #ffc0cb;
+      color: #fff;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #ff69b4aa;
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #ff69b4;
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px #ff69b4aa;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <a href="index.html" class="love-button">Home</a>
-        <a href="letter.html" class="love-button">Letter</a>
-        <a href="music.html" class="love-button active">Music</a>
-        <a href="collage.html" class="love-button">Collage</a>
-        <a href="heart.html" class="love-button">Special</a>
-      </nav>
-    <h1>Your Songs</h1>
-    <div class="video-row">
-      <div class="video-card">
-    <video controls>
+
+  <h1>Your Songs</h1>
+
+  <div class="video-row">
+    <div class="video-card">
+      <video controls>
         <source src="music/tum.mp4" type="video/mp4">
-    </video>
-    <p>Tum se hi toh mera din hota hai. </p>
-  </div>
-  <div class="video-card">
-    <video controls>
+      </video>
+      <p>Tum se hi toh mera din hota hai.</p>
+    </div>
+
+    <div class="video-card">
+      <video controls>
         <source src="music/riptide.mp4" type="video/mp4">
-    </video>
-    <p>I'll always be your left hand man.</p>
+      </video>
+      <p>I'll always be your left hand man.</p>
+    </div>
   </div>
-</div>
+
+  <div class="bottom-nav">
+    <a href="collage.html">Next →</a>
+  </div>
+
 </body>
 </html>

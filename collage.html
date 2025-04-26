@@ -4,268 +4,236 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Our Memories</title>
-  
+
   <!-- Romantic font -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
   <style>
-   body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff0f5;
-    color: #333;
-    overflow-x: hidden;
-    position: relative;
-   }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #0d0d0d; /* Dark background */
+      color: #fff;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-nav {
-  background-color: #ffe4e1;
-  padding: 20px 0;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 10;
-}
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px;
+    }
 
-nav a {
-  text-decoration: none;
-  font-size: 1.2em;
-  color: #b22222;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-nav a:hover {
-  color: #8b0000;
-}
+    .gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px;
-}
+    .image-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 300px;
+      overflow: hidden;
+    }
 
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .image-container img {
+      width: 100%;
+      border-radius: 15px;
+      position: relative;
+      z-index: 1;
+    }
 
-.gallery img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
+    .image-container::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background-image: radial-gradient(circle, rgba(255, 182, 193, 0.4) 0%, transparent 60%);
+      opacity: 0;
+      pointer-events: none;
+      transform: rotate(45deg);
+      transition: opacity 0.3s ease;
+      z-index: 2;
+    }
 
-/* Pink sparkle on hover */
-.image-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 300px;
-  overflow: hidden;
-}
+    .image-container:hover::after {
+      animation: sparkle 2s forwards;
+    }
 
-.image-container img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  position: relative;
-  z-index: 1;
-}
+    @keyframes sparkle {
+      0% {
+        transform: translate(-100%, -100%) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        transform: translate(50%, 50%) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(200%, 200%) rotate(45deg);
+        opacity: 0;
+      }
+    }
 
-.image-container::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background-image: radial-gradient(circle, rgba(255, 182, 193, 0.6) 0%, transparent 60%);
-  opacity: 0;
-  pointer-events: none;
-  transform: rotate(45deg);
-  transition: opacity 0.3s ease;
-  z-index: 2;
-}
+    .fade-in {
+      animation: fadeInUp 1.5s ease-out;
+    }
 
-.image-container:hover::after {
-  animation: sparkle 2s forwards;
-}
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-@keyframes sparkle {
-  0% {
-    transform: translate(-100%, -100%) rotate(45deg);
-    opacity: 0;
-  }
-  50% {
-    transform: translate(50%, 50%) rotate(45deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(200%, 200%) rotate(45deg);
-    opacity: 0;
-  }
-}
+    .caption {
+      margin-top: 10px;
+      font-family: 'Segoe UI', sans-serif;
+      font-size: 1rem;
+      color: #ffb6c1;
+      text-align: center;
+    }
 
-.fade-in {
-  animation: fadeInUp 1.5s ease-out;
-}
+    /* Floating Romantic Text */
+    .floating-text {
+      position: absolute;
+      top: 25%;
+      width: 100%;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      font-family: 'Dancing Script', cursive;
+      color: #ffb6c1;
+      opacity: 0;
+      z-index: 5;
+      pointer-events: none;
+    }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .fade-in-out {
+      animation: fadeInOut 2s ease forwards;
+    }
 
-.caption {
-  margin-top: 10px;
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  color: #b22222;
-  text-align: center;
-}
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      25% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      75% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+    }
 
-.love-button {
-  background-color: #ffcad4;
-  border: none;
-  color: #8b0000;
-  padding: 10px 20px;
-  font-size: 1em;
-  font-weight: bold;
-  border-radius: 30px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-decoration: none;
-}
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      animation: floatHeart 8s linear infinite;
+      opacity: 0.7;
+      z-index: 0;
+      border-radius: 50% 50% 0 0;
+      transform: rotate(-45deg);
+    }
 
-.love-button:hover {
-  background-color: #ffc0cb;
-  color: #fff;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  transform: scale(1.05);
-}
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      border-radius: 50%;
+    }
 
-nav a.love-button.active {
-  box-shadow: 0 0 10px #ff69b4aa;
-  background-color: #ffb6c1;
-}
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
 
-.love-button:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
+    .heart::after {
+      left: 10px;
+      top: 0;
+    }
 
-/* Floating Romantic Text */
-.floating-text {
-  position: absolute;
-  top: 25%;
-  width: 100%;
-  text-align: center;
-  font-size: 2em;
-  font-weight: bold;
-  font-family: 'Dancing Script', cursive;
-  color: #b22222;
-  opacity: 0;
-  z-index: 5;
-  pointer-events: none;
-}
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(0) scale(1) rotate(-45deg);
+        opacity: 0.7;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5) rotate(-45deg);
+        opacity: 0;
+      }
+    }
 
-.fade-in-out {
-  animation: fadeInOut 2s ease forwards;
-}
+    /* Special Pulsing Button */
+    .special-button {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #ff69b4;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: white;
+      border-radius: 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      text-decoration: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      animation: pulse 2s infinite;
+      z-index: 20;
+    }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  25% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  75% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-}
-.heart {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  background-color: pink;
-  left: 50%;
-  top: 100%;
-  transform: translateX(-50%);
-  animation: floatHeart 8s linear infinite;
-  opacity: 0.7;
-  z-index: 0;
-  border-radius: 50% 50% 0 0;
-  transform: rotate(-45deg);
-}
-
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-color: pink;
-  border-radius: 50%;
-}
-
-.heart::before {
-  top: -10px;
-  left: 0;
-}
-
-.heart::after {
-  left: 10px;
-  top: 0;
-}
-
-@keyframes floatHeart {
-  0% {
-    transform: translateY(0) scale(1) rotate(-45deg);
-    opacity: 0.7;
-  }
-  100% {
-    transform: translateY(-120vh) scale(1.5) rotate(-45deg);
-    opacity: 0;
-  }
-}
-
+    @keyframes pulse {
+      0% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.08);
+      }
+      100% {
+        transform: translateX(-50%) scale(1);
+      }
+    }
   </style>
-  
+
 </head>
 
 <body>
-  <nav>
-    <a href="index.html" class="love-button ">Home</a>
-    <a href="letter.html" class="love-button ">Letter</a>
-    <a href="music.html" class="love-button ">Music</a>
-    <a href="collage.html" class="love-button active">Collage</a>
-    <a href="heart.html" class="love-button">Special</a>
-  </nav>
 
   <div class="gallery">
     <div class="image-container">
@@ -318,6 +286,8 @@ nav a.love-button.active {
     </div>
   </div>
 
+  <a href="heart.html" class="special-button">Special 💖</a>
+
   <audio id="bg-music" autoplay loop>
     <source src="songs/perfect.mp4" type="audio/mpeg">
   </audio>
@@ -332,7 +302,6 @@ nav a.love-button.active {
       document.addEventListener("click", playAudio);
     });
 
-    // Floating Text Logic
     const texts = [
       "It's been a year!",
       "Our memories together!",
@@ -351,27 +320,29 @@ nav a.love-button.active {
 
       setTimeout(() => {
         div.remove();
-      }, delay + 2000); // after animation
+      }, delay + 2000);
     }
 
-    let totalDelay = 4000; // Start after 4 seconds
+    let totalDelay = 4000;
     texts.forEach((text, i) => {
       showFloatingText(text, totalDelay);
-      totalDelay += 3000 + Math.random() * 1000; // slight randomness (3-4 seconds)
+      totalDelay += 3000 + Math.random() * 1000;
     });
+
     function createHeart() {
-  const heart = document.createElement('div');
-  heart.className = 'heart';
-  heart.style.left = `${Math.random() * 100}vw`;
-  heart.style.animationDuration = `${6 + Math.random() * 4}s`;
-  document.body.appendChild(heart);
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = `${Math.random() * 100}vw`;
+      heart.style.animationDuration = `${6 + Math.random() * 4}s`;
+      document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 10000);
-}
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+    }
 
-setInterval(createHeart, 500);
+    setInterval(createHeart, 500);
   </script>
+
 </body>
 </html>

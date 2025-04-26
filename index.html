@@ -6,88 +6,60 @@
   <title>For Her</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #ffe4ec, #fff0f5);
-      color: #333;
-      overflow-x: hidden;
-    }
-
-    nav {
-      background-color: #ffe4e1;
-      padding: 20px 0;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      position: sticky;
-      top: 0;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      z-index: 10;
-    }
-
-    .love-button {
-      background-color: #ffcad4;
-      border: none;
-      color: #8b0000;
-      padding: 10px 20px;
-      font-size: 1em;
-      font-weight: bold;
-      border-radius: 30px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: all 0.3s ease;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-decoration: none;
+      background: radial-gradient(circle at center, #0a0a23, #000000);
+      color: white;
+      overflow: hidden;
     }
 
-    .love-button:hover {
-      background-color: #ffc0cb;
-      color: #fff;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-      transform: scale(1.05);
-    }
-
-    .love-button:active {
-      transform: scale(0.98);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-
-    .content {
-      padding: 60px 20px;
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
     }
 
-    .heading {
-      font-size: 2.5em;
-      color: #b22222;
+    h1 {
+      font-size: 3rem;
       margin-bottom: 20px;
+      color: #ff5c8d;
       animation: fadeInUp 1s ease-out;
     }
 
-    .subtext {
-      font-size: 1.2em;
-      margin-bottom: 40px;
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
       animation: fadeInUp 1.5s ease-out;
+      max-width: 800px;
     }
 
-    nav a.love-button.active {
-      box-shadow: 0 0 10px #ff69b4aa;
-      background-color: #ffb6c1;
+    .continue-button {
+      background: linear-gradient(to right, #ff5c8d, #7f00ff);
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 92, 141, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      font-weight: bold;
     }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .continue-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(255, 92, 141, 0.6);
     }
 
-    /* Floating hearts (subtle) */
+    /* Floating magical hearts */
     .hearts {
       position: fixed;
       top: 0;
@@ -100,34 +72,35 @@
     }
 
     .heart {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: pink;
-  transform: rotate(45deg);
-  animation: float 6s linear infinite;
-  opacity: 0.6;
-}
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+      filter: drop-shadow(0 0 10px pink);
+    }
 
-.heart::before,
-.heart::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background: pink;
-  border-radius: 50%;
-}
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: var(--heart-color, pink);
+      border-radius: 50%;
+    }
 
-.heart::before {
-  top: -15px;
-  left: 0;
-}
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
 
-.heart::after {
-  top: 0;
-  left: -15px;
-}
+    .heart::after {
+      top: 0;
+      left: -15px;
+    }
 
     @keyframes float {
       0% {
@@ -142,32 +115,28 @@
         opacity: 0;
       }
     }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="index.html" class="love-button active">Home</a>
-    <a href="letter.html" class="love-button ">Letter</a>
-    <a href="music.html" class="love-button ">Music</a>
-    <a href="collage.html" class="love-button">Collage</a>
-    <a href="heart.html" class="love-button ">Special</a>
-  </nav>
-
-  <div class="content">
-    <h1 class="heading">For the Love of My Life</h1>
-    <p class="subtext">You are the calm to my chaos, the softest part of my soul. <br> This is all for you.</p>
-    <p style="font-size: 1.1em;">Explore the love letter, music I played for you, and our favorite memories. I love you endlessly.</p>
+  <div class="container">
+    <h1>For the Love of My Life</h1>
+    <p>You are the calm to my chaos, the softest part of my soul.<br> This is all for you.</p>
+    <p style="font-size: 1.1em;">Explore the love letter, the music I played for you, and the memories we've made.<br>I love you endlessly.</p>
+    <a href="letter.html" class="continue-button">Just a piece of my heart ➔</a>
   </div>
 
-  <div class="hearts">
-
-    <div class="heart" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="heart" style="left: 30%; animation-delay: 3s;"></div>
-    <div class="heart" style="left: 50%; animation-delay: 6s;"></div>
-    <div class="heart" style="left: 70%; animation-delay: 1.5s;"></div>
-    <div class="heart" style="left: 90%; animation-delay: 4.5s;"></div>
-  </div>
+  <div class="hearts" id="hearts"></div>
 
   <audio id="bg-music" autoplay loop>
     <source src="songs/river.mp4" type="audio/mpeg">
@@ -182,6 +151,31 @@
       };
       document.addEventListener("click", playAudio);
     });
+
+    const heartsContainer = document.getElementById('hearts');
+    const colors = ['#ff4d6d', '#ff6f91', '#ffc2d1', '#ff8fab', '#e0aaff', '#cdb4db', '#ffafcc'];
+
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      
+      const size = Math.random() * 20 + 20; 
+      heart.style.width = `${size}px`;
+      heart.style.height = `${size}px`;
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (6 + Math.random() * 5) + 's'; 
+      
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.setProperty('--heart-color', color);
+      heart.style.filter = `drop-shadow(0 0 10px ${color})`;
+
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 12000);
+    }, 400);
   </script>
+
 </body>
 </html>

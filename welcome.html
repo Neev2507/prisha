@@ -3,107 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome</title>
+  <title>Adventure Into My Heart</title>
   <style>
     body {
       margin: 0;
       padding: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ffe4ec, #fff0f5);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
       overflow: hidden;
+      background: linear-gradient(135deg, #000000, #08004c);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      position: relative;
     }
 
-    .avatar {
-      width: 200px;
-      height: 200px;
-      background: url('your-avatar.png') no-repeat center/cover;
-      border-radius: 50%;
-      box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
-      margin-bottom: 30px;
-      animation: float 3s ease-in-out infinite;
+    .genie-container {
+      position: absolute;
+      left: -500px;
+      top: 30%;
+      width: 300px;
+      animation: slideIn 1s ease-out forwards;
     }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-20px);
-      }
-    }
-
-    .typewriter-text {
-      font-size: 1.8em;
-      color: #b22222;
-      margin-bottom: 40px;
-      text-align: center;
-      width: 80%;
-      min-height: 120px;
-    }
-
-    .start-button {
-      background-color: #ffcad4;
-      color: #8b0000;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      font-weight: bold;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .start-button:hover {
-      background-color: #ffc0cb;
-      transform: scale(1.05);
-    }
-
-    .fade-out {
-      animation: fadeOut 1s forwards;
-    }
-
-    @keyframes fadeOut {
+    @keyframes slideIn {
       to {
-        opacity: 0;
-        transform: scale(1.1);
+        left: 10%;
       }
+    }
+
+    .speech-bubble {
+      position: absolute;
+      top: 20%;
+      left: 30%;
+      background: #fff;
+      border-radius: 20px;
+      padding: 20px;
+      max-width: 400px;
+      font-size: 1.5em;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.5s ease;
+    }
+
+    .speech-bubble.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .heart-button {
+      position: absolute;
+      bottom: 50px;
+      background: #ff4d6d;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: none;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png');
+      background-size: 50%;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .heart-button:hover {
+      transform: scale(1.1);
     }
   </style>
 </head>
 <body>
 
-  <div class="avatar"></div>
+  <audio id="chime" src="sound effect/chime.mp4"></audio>
+  <audio id="heartbeat" src="sound effect/heartbeat.mp4"></audio>
 
-  <div class="typewriter-text" id="typewriter"></div>
+  <img src="photos/genie.png" class="genie-container" id="genie" alt="Genie" />
+  <div class="speech-bubble" id="speech">
+    Hey babygirl
+  </div>
 
-  <button class="start-button" id="start-btn">Start Adventure 🚀</button>
+  <div class="speech-bubble" id="speech">
+    Welcome to an adventure into my heart. I'm your guide, let's begin!
+  </div>
+
+  <button class="heart-button" id="heart"></button>
 
   <script>
-    const text = "Welcome, my love... 💖 I'm Nee, your guide today! Let's go on an adventure.";
-    const speed = 50; // typing speed in ms
-    let i = 0;
-    const typewriter = document.getElementById('typewriter');
+    const chime = document.getElementById('chime');
+    const heartbeat = document.getElementById('heartbeat');
+    const genie = document.getElementById('genie');
+    const speech = document.getElementById('speech');
+    const heart = document.getElementById('heart');
 
-    function type() {
-      if (i < text.length) {
-        typewriter.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(type, speed);
-      }
-    }
-    window.onload = type;
-
-    document.getElementById('start-btn').addEventListener('click', () => {
-      document.body.classList.add('fade-out');
+    window.addEventListener('load', () => {
       setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1000);
+        speech.classList.add('show');
+      }, 1500);
+    });
+    setTimeout(() => {
+        speech.classList.add('show');
+      }, 500); // Slightly earlier show for smoothness
+
+      setTimeout(() => {
+        speech.textContent = "Welcome to an adventure into my heart. I'm your guide, let's begin!";
+      }, 2000); // After 1.5 seconds of "Hey babygirl"
+   
+
+    window.addEventListener('click', () => {
+      chime.volume = 1.0;
+      chime.play().catch((error) => console.log('Chime play error:', error));
+    }, { once: true });
+
+    heart.addEventListener('click', () => {
+      heartbeat.volume = 1.0;
+      heartbeat.play().catch(() => {});
+      heart.disabled = true; 
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 5000);
     });
   </script>
 

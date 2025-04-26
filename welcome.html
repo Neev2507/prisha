@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffe4ec, #fff0f5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+      background: url('your-avatar.png') no-repeat center/cover;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(255, 182, 193, 0.8);
+      margin-bottom: 30px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
+    .typewriter-text {
+      font-size: 1.8em;
+      color: #b22222;
+      margin-bottom: 40px;
+      text-align: center;
+      width: 80%;
+      min-height: 120px;
+    }
+
+    .start-button {
+      background-color: #ffcad4;
+      color: #8b0000;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .start-button:hover {
+      background-color: #ffc0cb;
+      transform: scale(1.05);
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="avatar"></div>
+
+  <div class="typewriter-text" id="typewriter"></div>
+
+  <button class="start-button" id="start-btn">Start Adventure 🚀</button>
+
+  <script>
+    const text = "Welcome, my love... 💖 I'm Nee, your guide today! Let's go on an adventure.";
+    const speed = 50; // typing speed in ms
+    let i = 0;
+    const typewriter = document.getElementById('typewriter');
+
+    function type() {
+      if (i < text.length) {
+        typewriter.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(type, speed);
+      }
+    }
+    window.onload = type;
+
+    document.getElementById('start-btn').addEventListener('click', () => {
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>

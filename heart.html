@@ -9,22 +9,21 @@
 
   <style>
     body, html {
+      font-family: 'Meow Script', cursive;
+      background: radial-gradient(circle at center, #0a0a23, #000000);
+      color: #333;
       margin: 0;
       padding: 0;
-      height: 100%;
-      width: 100%;
-      background-color: #0d0d0d; /* Dark background */
-      overflow: hidden;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #fff;
-      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     video {
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100%;
+      width: 30%;
       height: 100%;
       object-fit: cover;
       transform: translate(-50%, -50%);
@@ -55,78 +54,48 @@
       }
     }
 
-    /* BACK BUTTON (matching previous pages style) */
-    .back-button {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: linear-gradient(135deg, #ff4e8b, #ff6ba8);
-      border: none;
-      padding: 12px 30px;
-      font-size: 1.1em;
-      font-weight: bold;
-      color: white;
-      border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
-      cursor: pointer;
-      text-decoration: none;
-      transition: background 0.4s, transform 0.3s;
-      z-index: 3;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    /* Button style same as music.html and letter.html */
+    .button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffcad4;
+  color: #8b0000;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  text-align: center;
+  box-shadow: 0 0 15px #ffb6c1;
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  opacity: 0;
+  animation: fadeInButton 2s ease forwards;
+  animation-delay: 5s;
+  z-index: 3;
+}
 
-    .back-button:hover {
-      background: linear-gradient(135deg, #ff6ba8, #ff4e8b);
-      transform: translateX(-50%) scale(1.05);
-    }
+.button:hover {
+  background-color: #ffc0cb;
+  color: white;
+  box-shadow: 0 0 25px #ffb6c1;
+  transform: translateX(-50%) scale(1.05);
+}
 
-    /* Floating hearts */
-    .heart {
-      position: fixed;
-      width: 20px;
-      height: 20px;
-      background-color: pink;
-      left: 50%;
-      top: 100%;
-      transform: translateX(-50%);
-      animation: floatHeart 8s linear infinite;
-      opacity: 0.7;
-      z-index: 0;
-      border-radius: 50% 50% 0 0;
-      transform: rotate(-45deg);
-    }
 
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-color: pink;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: 10px;
-      top: 0;
-    }
-
-    @keyframes floatHeart {
-      0% {
-        transform: translateY(0) scale(1) rotate(-45deg);
-        opacity: 0.7;
-      }
-      100% {
-        transform: translateY(-120vh) scale(1.5) rotate(-45deg);
+    @keyframes fadeInButton {
+      from {
         opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
       }
     }
+
   </style>
 </head>
 
@@ -135,28 +104,15 @@
   <div class="overlay-text">I have something to tell you... ❤️</div>
 
   <video id="love-video" autoplay muted controls>
-    <source src="videos/loveletter.mp4" type="video/mp4">
+    <source src="love.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
-  <a href="collage.html" class="back-button">Back to Memories</a>
+  <a href="final.html" class="button">Final Destination!</a>
 
   <script>
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.style.left = `${Math.random() * 100}vw`;
-      heart.style.animationDuration = `${6 + Math.random() * 4}s`;
-      document.body.appendChild(heart);
+    
 
-      setTimeout(() => {
-        heart.remove();
-      }, 10000);
-    }
-
-    setInterval(createHeart, 500);
-
-    // Optional: unmute video on user click
     const video = document.getElementById('love-video');
     document.addEventListener('click', () => {
       video.muted = false;

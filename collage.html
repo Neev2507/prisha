@@ -197,26 +197,31 @@
       }
     }
 
-    /* Special Pulsing Button */
     .special-button {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #ff69b4;
-      border: none;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      font-weight: bold;
-      color: white;
-      border-radius: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      text-decoration: none;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      animation: pulse 2s infinite;
-      z-index: 20;
-    }
+  display: inline-block;
+  background-color: #ffcad4;
+  color: #8b0000;
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 14px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  text-align: center;
+  margin: 40px auto;
+  box-shadow: 0 0 15px #ffb6c1;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+}
+
+.special-button:hover {
+  background-color: #ffc0cb;
+  color: white;
+  box-shadow: 0 0 25px #ffb6c1;
+}
+
 
     @keyframes pulse {
       0% {

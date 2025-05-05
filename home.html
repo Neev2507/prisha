@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Her</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at center, #0a0a23, #000000);
+      color: white;
+      overflow: hidden;
+    }
+
+    .container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #ff5c8d;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      animation: fadeInUp 1.5s ease-out;
+      max-width: 800px;
+    }
+
+    .continue-button {
+      background: linear-gradient(to right, #ff5c8d, #7f00ff);
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 92, 141, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .continue-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 30px rgba(255, 92, 141, 0.6);
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      transform: rotate(45deg);
+      animation: float 8s linear infinite;
+      opacity: 0.7;
+      filter: drop-shadow(0 0 10px pink);
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: var(--heart-color, pink);
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -15px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -15px;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>For the Love of My Life</h1>
+    <p>You are the calm to my chaos, the softest part of my soul.<br> This is all for you.</p>
+    <p style="font-size: 1.1em;">Take a peak into what my heart feels for you.<br>I love you more than you could ever imagine.</p>
+    <a href="letter.html" class="continue-button">Just a piece of my heart ➔</a>
+  </div>
+
+  <div class="hearts" id="hearts"></div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="songs/river.mp4" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const audio = document.getElementById("bg-music");
+    document.addEventListener("DOMContentLoaded", () => {
+      const playAudio = () => {
+        audio.play().catch(() => {});
+        document.removeEventListener("click", playAudio);
+      };
+      document.addEventListener("click", playAudio);
+    });
+
+    const heartsContainer = document.getElementById('hearts');
+    const colors = ['#ff4d6d', '#ff6f91', '#ffc2d1', '#ff8fab', '#e0aaff', '#cdb4db', '#ffafcc'];
+
+    setInterval(() => {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      
+      const size = Math.random() * 20 + 20; 
+      heart.style.width = `${size}px`;
+      heart.style.height = `${size}px`;
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (6 + Math.random() * 5) + 's'; 
+      
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      heart.style.setProperty('--heart-color', color);
+      heart.style.filter = `drop-shadow(0 0 10px ${color})`;
+
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 12000);
+    }, 400);
+  </script>
+
+</body>
+</html>
